@@ -201,6 +201,19 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         }
     }
 
+    private void openLocationInMap() {
+        String addressName = "13110 Swift Road, MO";
+        Uri geoLocation =  Uri.parse("geo:0,0?q=" + addressName);
+
+        Intent iMaps = new Intent(Intent.ACTION_VIEW);
+        iMaps.setData(geoLocation);
+            if (iMaps.resolveActivity(getPackageManager()) != null) {
+                startActivity(iMaps);
+            } else {
+                Log.d(TAG, "Could not call" + geoLocation.toString() + ",no receiving app available!");
+            }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         /* Use AppCompatActivity's method getMenuInflater to get a handle on the menu inflater */
@@ -221,7 +234,13 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             return true;
         }
 
-        // TODO (2) Launch the map when the map menu item is clicked
+        if (id == R.id.action_map) {
+            openLocationInMap();
+            return true;
+
+        }
+
+        // FINISHED (2) Launch the map when the map menu item is clicked
 
         return super.onOptionsItemSelected(item);
     }
