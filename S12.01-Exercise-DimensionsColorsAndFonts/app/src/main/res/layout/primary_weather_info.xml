@@ -31,7 +31,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
          - This Guideline divides the screen into a left half and a right half and is used to    -
@@ -59,8 +60,9 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textSize="20sp"
+            android:layout_marginBottom="@dimen/list_item_padding_horizontal"
+            android:textSize="24sp"
+            android:textColor="@color/secondary_text"
             app:layout_constraintBottom_toTopOf="@+id/weather_icon"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -69,9 +71,10 @@
         <!-- Icon indicating weather condition -->
         <ImageView
             android:id="@+id/weather_icon"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="@dimen/today_icon"
+            android:layout_height="@dimen/today_icon"
             android:adjustViewBounds="true"
+            android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/horizontal_middle"
@@ -85,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="20sp"
+            android:textColor="@color/primary_text"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintLeft_toLeftOf="@+id/weather_icon"
             app:layout_constraintRight_toRightOf="@+id/weather_icon"
@@ -105,6 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="72sp"
+            android:textColor="@color/primary_text"
             app:layout_constraintBottom_toBottomOf="@+id/weather_icon"
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
@@ -126,10 +131,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="36sp"
+            android:layout_marginEnd="@dimen/forecast_temperature_space"
+            android:textColor="@color/secondary_text"
             app:layout_constraintBaseline_toBaselineOf="@+id/weather_description"
             app:layout_constraintLeft_toLeftOf="@+id/high_temperature"
             app:layout_constraintRight_toRightOf="@+id/high_temperature"
-            tools:text="10\u00b0"/>
+            tools:text="10\u00b0"
+            android:layout_marginRight = "@dimen/forecast_temperature_space" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
